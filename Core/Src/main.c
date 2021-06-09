@@ -113,6 +113,7 @@ uint32_t timestamp=0;
   {
 	HAL_UART_Receive_IT(&huart2,  (uint8_t*)RxDataBuffer, 32);
 	Posdata=huart2.RxXferSize - huart2.RxXferCount;
+
 	if(Posdatapre!=Posdata){
 		sprintf(TxDataBuffer, "\r\nReceivedChar:[%c]", RxDataBuffer[Posdatapre] );
 		HAL_UART_Transmit(&huart2, (uint8_t*)TxDataBuffer, strlen(TxDataBuffer),500);
